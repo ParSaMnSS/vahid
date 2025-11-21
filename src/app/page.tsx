@@ -21,7 +21,7 @@ export default function Home() {
         {/* Hero Section */}
         <section id="hero" className="h-screen flex items-center justify-center text-center bg-cover bg-center" style={{ backgroundImage: "url('/hero-bg.jpg')" }}>
           <div className="bg-black bg-opacity-60 p-10 rounded-lg">
-            <h2 className="text-5xl font-extrabold mb-4">Caneless – Smart Vision</h2>
+            <h2 className="text-5xl font-extrabold mb-4">Caneless – Smart Vision, Without Limits</h2>
             <p className="text-xl mb-8">The future of mobility for the visually impaired.</p>
             <button className="bg-white text-black font-bold py-3 px-8 rounded-full hover:bg-gray-300 transition duration-300">
               Learn More
@@ -34,7 +34,7 @@ export default function Home() {
           <div className="container mx-auto px-6 text-center">
             <h3 className="text-4xl font-bold mb-6">About Caneless</h3>
             <p className="max-w-3xl mx-auto text-lg text-gray-300">
-              Caneless is a revolutionary smart device designed to empower the visually impaired. By using a combination of advanced sensors and AI, Caneless provides real-time auditory feedback about the user's surroundings, making navigation safer and more intuitive than ever before.
+              At Caneless, we empower blind and visually-impaired individuals with greater freedom, confidence, and independence. Our intelligent smart glasses combine advanced AI, real-time object detection, and natural voice guidance to transform the way users navigate the world. Designed to replace or complement traditional mobility tools, Caneless glasses offer hands-free assistance that understands the environment, reads text, recognizes objects and faces, and provides intuitive audio feedback — all through a lightweight, comfortable design built for everyday use.
             </p>
           </div>
         </section>
