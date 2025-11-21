@@ -66,8 +66,10 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-[#F5F5F7] text-[#1d1d1f]">
       <div className='relative h-[80vh] md:h-screen w-full overflow-hidden bg-[#F5F5F7]'>
+        <Image src='/assets/woman.jpeg' alt='Caneless Editorial' fill className='object-cover object-[40%_50%] block md:hidden' priority />
+        <div className="absolute inset-0 bg-black/30 block md:hidden" />
         <video 
-          className='absolute top-0 left-0 w-full h-full object-cover transform-gpu scale-125 md:scale-100' 
+          className='absolute top-0 left-0 w-full h-full object-cover transform-gpu hidden md:block' 
           autoPlay 
           loop 
           muted 
