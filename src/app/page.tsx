@@ -20,7 +20,7 @@ function ProductShowcase() {
 
   return (
     <div className="max-w-7xl mx-auto px-6 py-16 md:py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
-      <div className="relative aspect-4/3 w-full rounded-[2.5rem] border border-black/5 overflow-hidden bg-[#fefef4] flex items-center justify-center">
+      <div className="relative aspect-4/3 w-full rounded-[2.5rem] overflow-hidden bg-[#fefef4] shadow-2xl flex items-center justify-center">
         <Image
           src={selectedProduct.src}
           alt={selectedProduct.name}
@@ -56,15 +56,15 @@ function ProductShowcase() {
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#F5F5F7] text-[#1d1d1f]">
-      <div className='relative h-[85vh] md:h-screen w-full overflow-hidden bg-[#F5F5F7]'>
+      <div className='relative h-[80vh] md:h-screen w-full overflow-hidden bg-[#F5F5F7]'>
         <video 
-          className='absolute top-0 left-0 w-full h-full object-cover transform-gpu will-change-transform bg-[#F5F5F7]' 
-          style={{ transform: 'translate3d(0, 0, 0)' }}
+          className='absolute top-0 left-0 w-full h-full object-cover transform-gpu scale-125 md:scale-100' 
           autoPlay 
           loop 
           muted 
           playsInline 
-          preload='auto'
+          preload='auto' 
+          poster='/assets/hero-bg.jpg'
         >
           <source src='/assets/glasses-video.mp4' type='video/mp4' />
         </video>
@@ -81,7 +81,19 @@ export default function Home() {
       
       <ProductShowcase />
 
-      <DemoSection />
+      <div className='w-full py-20 md:py-32 flex justify-center px-4'>
+        <div className='max-w-5xl w-full aspect-video rounded-4xl overflow-hidden shadow-2xl'>
+          <video 
+            className='w-full h-full object-cover transform-gpu' 
+            autoPlay 
+            loop 
+            muted 
+            playsInline 
+            preload='auto' 
+            src='/assets/case-video.mp4' 
+          />
+        </div>
+      </div>
 
       <footer className="py-16 flex justify-center">
         <Image 
