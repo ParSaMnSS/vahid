@@ -59,7 +59,7 @@ function ProductShowcase() {
         </div>
         {/* Added Buy Button */}
         <button className="mt-6 ml-4 px-6 py-3 bg-[#1d1d1f] text-white font-semibold rounded-lg shadow-md hover:bg-neutral-800 focus:outline-none focus:ring-2 focus:ring-neutral-500 focus:ring-offset-2">
-          $3500
+          Purchase $3500
         </button>
       </div>
     </div>
