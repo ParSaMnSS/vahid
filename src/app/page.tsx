@@ -57,10 +57,10 @@ function ProductShowcase() {
             />
           ))}
         </div>
-        {/* Updated Button and Price structure */}
-        <button className="mt-6 ml-4 px-6 py-3 bg-[#1d1d1f] text-white font-semibold rounded-lg shadow-md hover:bg-neutral-800 focus:outline-none focus:ring-2 focus:ring-neutral-500 focus:ring-offset-2">
-          Purchase
-        </button>
+        <div className='mt-10 pt-10 border-t border-neutral-200/60 flex flex-col sm:flex-row items-center justify-between gap-6'>
+          <span className='text-4xl font-light tracking-tight text-[#1d1d1f]'>$3,500</span>
+          <button className='bg-[#1d1d1f] text-white px-12 py-4 rounded-full uppercase tracking-[0.2em] text-xs font-bold hover:scale-105 active:scale-95 transition-all duration-300 shadow-lg hover:shadow-xl'>Pre-Order</button>
+        </div>
       </div>
     </div>
   );
