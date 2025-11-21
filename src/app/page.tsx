@@ -84,7 +84,7 @@ export default function Home() {
           <source src='/assets/glasses-video.mp4' type='video/mp4' />
         </video>
         <div className='relative z-10 h-full flex flex-col items-center justify-center text-center px-4'>
-          <label className='uppercase tracking-[0.5em] text-[10px] sm:text-xs text-zinc-500 mb-4'>Visionary Tech</label>
+          <label className='uppercase tracking-[0.5em] text-[10px] sm:text-xs text-gray-700 sm:text-gray-300 mb-4'>Visionary Tech</label>
           <h1 className='text-5xl sm:text-6xl md:text-8xl font-light tracking-tighter text-[#1d1d1f] sm:text-white'>CANELESS</h1>
         </div>
       </div>
