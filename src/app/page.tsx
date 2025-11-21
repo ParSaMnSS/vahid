@@ -33,8 +33,7 @@ function ProductShowcase() {
               alt={product.name}
               width={600}
               height={600}
-              className="object-contain w-[80%] h-[80%]"
-              priority={true}
+              className="object-contain w-[80%] h-[80%] shadow-2xl"
             />
           </div>
         ))}
@@ -49,7 +48,7 @@ function ProductShowcase() {
               key={product.name}
               onClick={() => setSelectedProduct(product)}
               style={{ backgroundColor: product.colorCode }}
-              className={`w-12 h-12 rounded-full cursor-pointer transition-all duration-300 focus:outline-none ${
+              className={`w-12 h-12 rounded-full cursor-pointer transition-all duration-300 focus:outline-none border border-neutral-300 ${
                 selectedProduct.name === product.name
                   ? 'ring-2 ring-black ring-offset-4 ring-offset-[#F5F5F7]'
                   : 'opacity-70 hover:opacity-100'
