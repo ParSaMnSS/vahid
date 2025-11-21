@@ -21,7 +21,7 @@ function ProductShowcase() {
   const [selectedProduct, setSelectedProduct] = useState(products[0]);
 
   return (
-    <div className="max-w-7xl mx-auto px-6 py-24 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+    <div className="max-w-7xl mx-auto px-6 py-16 md:py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
       <div className="relative aspect-4/3 w-full rounded-6xl overflow-hidden bg-[#fefef4] shadow-2xl flex items-center justify-center">
         <Image
           src={selectedProduct.src}
@@ -33,7 +33,7 @@ function ProductShowcase() {
       </div>
       <div className="flex flex-col">
         <label className="text-xs font-bold tracking-[0.3em] text-zinc-500 uppercase mb-6">The Collection</label>
-        <h3 className="text-5xl md:text-6xl font-thin text-white mb-8">Define Your Look</h3>
+        <h3 className="text-3xl sm:text-5xl md:text-6xl font-thin text-white mb-8">Define Your Look</h3>
         <p className="text-xl text-[#fefef4] mb-8 font-light">Color: {selectedProduct.name}</p>
         <div className="flex flex-wrap gap-4">
           {products.map((product) => (
@@ -80,22 +80,22 @@ export default function Home() {
         <video ref={videoRef} className='absolute w-full h-full object-cover opacity-60' muted playsInline preload='auto' src='/assets/glasses-video.mp4' />
         <div className='relative h-full flex flex-col items-center justify-center text-center'>
           <label className='uppercase tracking-[0.5em] text-xs text-zinc-400 mb-4'>Visionary Tech</label>
-          <h1 className='text-6xl md:text-9xl font-light tracking-tighter text-white mix-blend-overlay'>CANELESS</h1>
+          <h1 className='text-4xl sm:text-6xl md:text-8xl font-light tracking-tighter text-white mix-blend-overlay'>CANELESS</h1>
         </div>
       </div>
 
-      <div className="max-w-3xl mx-auto py-32 px-8 text-center">
-        <p className="text-2xl md:text-3xl font-light leading-relaxed text-zinc-300 mb-8">
+      <div className="max-w-3xl mx-auto py-20 sm:py-32 px-8 text-center">
+        <p className="text-xl sm:text-2xl md:text-3xl font-light leading-relaxed text-zinc-300 mb-8">
           At Caneless, we empower blind and visually-impaired individuals with greater freedom, confidence, and independence. Our intelligent smart glasses combine advanced AI, real-time object detection, and natural voice guidance to transform the way users navigate the world.
         </p>
-        <p className="text-2xl md:text-3xl font-light leading-relaxed text-zinc-300">
+        <p className="text-xl sm:text-2xl md:text-3xl font-light leading-relaxed text-zinc-300">
           Designed to replace or complement traditional mobility tools, Caneless glasses offer hands-free assistance that understands the environment, reads text, recognizes objects and faces, and provides intuitive audio feedback — all through a lightweight, comfortable design built for everyday use.
         </p>
       </div>
 
       <ProductShowcase />
 
-      <div className="w-full py-32 flex justify-center bg-[#0a0a0a]">
+      <div className="w-full py-24 md:py-32 flex justify-center bg-[#0a0a0a]">
         <div className="max-w-5xl w-full aspect-video rounded-4xl overflow-hidden shadow-2xl opacity-90 hover:opacity-100 transition-opacity duration-700">
           <video
             autoPlay
