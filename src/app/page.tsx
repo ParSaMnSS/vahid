@@ -20,14 +20,24 @@ function ProductShowcase() {
 
   return (
     <div className="max-w-7xl mx-auto px-6 py-16 md:py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
-      <div className="relative aspect-4/3 w-full rounded-[2.5rem] overflow-hidden bg-[#fefef4] shadow-2xl flex items-center justify-center">
-        <Image
-          src={selectedProduct.src}
-          alt={selectedProduct.name}
-          width={600}
-          height={600}
-          className="object-contain w-[80%] h-[80%]"
-        />
+      <div className="relative aspect-4/3 w-full rounded-[2.5rem] overflow-hidden bg-[#fefef4] border border-black/5">
+        {products.map((product) => (
+          <div
+            key={product.name}
+            className={`absolute inset-0 flex items-center justify-center transition-opacity duration-500 ease-in-out ${
+              selectedProduct.name === product.name ? 'opacity-100 z-10' : 'opacity-0 z-0'
+            }`}
+          >
+            <Image
+              src={product.src}
+              alt={product.name}
+              width={600}
+              height={600}
+              className="object-contain w-[80%] h-[80%]"
+              priority={true}
+            />
+          </div>
+        ))}
       </div>
       <div className="flex flex-col">
         <label className="text-xs font-bold tracking-[0.3em] text-neutral-400 uppercase mb-6">The Collection</label>
