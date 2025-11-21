@@ -1,11 +1,6 @@
 "use client";
-import { useRef, useState } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useGSAP } from '@gsap/react';
+import { useState } from 'react';
 import Image from 'next/image';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const products = [
   { name: 'Charcoal', src: '/assets/charcoal.jpeg', colorCode: '#36454F' },
@@ -56,28 +51,10 @@ function ProductShowcase() {
 }
 
 export default function Home() {
-  const containerRef = useRef(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useGSAP(() => {
-    if (videoRef.current) {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: 'top top',
-          end: '+=100%',
-          scrub: 1.5,
-          pin: true,
-        }
-      });
-      tl.fromTo(videoRef.current, { currentTime: 0 }, { currentTime: videoRef.current.duration || 10, ease: 'none' });
-    }
-  }, { scope: containerRef });
-
   return (
     <main className="min-h-screen bg-[#F5F5F7] text-[#1d1d1f] selection:bg-black selection:text-white">
-      <div ref={containerRef} className='relative h-[85vh] md:h-screen w-full overflow-hidden'>
-        <video ref={videoRef} className='absolute w-full h-full object-cover' muted playsInline preload='auto' src='/assets/glasses-video.mp4' />
+      <div className='relative h-[85vh] md:h-screen w-full overflow-hidden'>
+        <video className='absolute w-full h-full object-cover' autoPlay loop muted playsInline src='/assets/glasses-video.mp4' />
         <div className='relative h-full flex flex-col items-center justify-center text-center'>
           <label className='uppercase tracking-[0.5em] text-xs text-zinc-400 mb-4'>Visionary Tech</label>
           <h1 className='text-4xl sm:text-6xl md:text-8xl font-light tracking-tighter text-[#1d1d1f]'>CANELESS</h1>
