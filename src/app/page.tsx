@@ -20,7 +20,7 @@ function ProductShowcase() {
 
   return (
     <div className="max-w-7xl mx-auto px-6 py-16 md:py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
-      <div className="relative aspect-4/3 w-full rounded-[2.5rem] overflow-hidden bg-[#fefef4] shadow-2xl flex items-center justify-center">
+      <div className="relative aspect-4/3 w-full rounded-[2.5rem] border border-black/5 overflow-hidden bg-[#fefef4] flex items-center justify-center">
         <Image
           src={selectedProduct.src}
           alt={selectedProduct.name}
@@ -59,6 +59,7 @@ export default function Home() {
       <div className='relative h-[85vh] md:h-screen w-full overflow-hidden bg-[#F5F5F7]'>
         <video 
           className='absolute top-0 left-0 w-full h-full object-cover transform-gpu will-change-transform bg-[#F5F5F7]' 
+          style={{ transform: 'translate3d(0, 0, 0)' }}
           autoPlay 
           loop 
           muted 
