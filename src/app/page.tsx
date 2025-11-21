@@ -1,6 +1,11 @@
 "use client";
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
 import Image from 'next/image';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const products = [
   { name: 'Charcoal', src: '/assets/charcoal.jpeg', colorCode: '#36454F' },
@@ -27,7 +32,7 @@ function ProductShowcase() {
         />
       </div>
       <div className="flex flex-col">
-        <label className="text-xs font-bold tracking-[0.3em] text-neutral-400 uppercase mb-6">The Collection</label>
+        <label className="text-xs font-bold tracking-[0.3em] text-zinc-500 uppercase mb-6">The Collection</label>
         <h3 className="text-3xl sm:text-5xl md:text-6xl font-thin text-[#1d1d1f] mb-8">Define Your Look</h3>
         <p className="text-xl text-neutral-500 mb-8 font-light">Color: {selectedProduct.name}</p>
         <div className="flex flex-wrap gap-4">
@@ -51,11 +56,42 @@ function ProductShowcase() {
 }
 
 export default function Home() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [duration, setDuration] = useState(0);
+
+  useGSAP(() => {
+    if (duration && videoRef.current) {
+      gsap.fromTo(videoRef.current, 
+        { currentTime: 0 }, 
+        { 
+          currentTime: duration, 
+          duration: duration, 
+          ease: 'none', 
+          repeat: -1, 
+          yoyo: true 
+        }
+      );
+    }
+  }, [duration]);
+
+  useEffect(() => {
+    if (videoRef.current && videoRef.current.readyState >= 1) {
+      setDuration(videoRef.current.duration);
+    }
+  }, []);
+
   return (
     <main className="min-h-screen bg-[#F5F5F7] text-[#1d1d1f] selection:bg-black selection:text-white">
       <div className='relative h-[85vh] md:h-screen w-full overflow-hidden'>
-        <video className='absolute w-full h-full object-cover' autoPlay loop muted playsInline src='/assets/glasses-video.mp4' />
-        <div className='relative h-full flex flex-col items-center justify-center text-center'>
+        <video 
+          ref={videoRef} 
+          className='absolute w-full h-full object-cover' 
+          muted 
+          playsInline 
+          src='/assets/glasses-video.mp4' 
+          onLoadedMetadata={(e) => setDuration(e.currentTarget.duration)} 
+        />
+        <div className='relative z-10 h-full flex flex-col items-center justify-center text-center'>
           <label className='uppercase tracking-[0.5em] text-xs text-zinc-400 mb-4'>Visionary Tech</label>
           <h1 className='text-4xl sm:text-6xl md:text-8xl font-light tracking-tighter text-[#1d1d1f]'>CANELESS</h1>
         </div>
@@ -73,7 +109,7 @@ export default function Home() {
       <ProductShowcase />
 
       <div className="w-full py-24 md:py-32 flex justify-center">
-        <div className="max-w-5xl w-full aspect-video rounded-4xl overflow-hidden shadow-2xl opacity-90 hover:opacity-100 transition-opacity duration-700">
+        <div className="max-w-5xl w-full aspect-video rounded-4xl overflow-hidden shadow-2xl  transition-opacity duration-700">
           <video
             autoPlay
             loop
