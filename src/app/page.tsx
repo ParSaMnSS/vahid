@@ -111,7 +111,7 @@ export default function Home() {
           {/* Logo Section */}
           <div>
             <Image
-              src="/assets/logo 2.jpeg"
+              src="/assets/logo 2.png"
               width={160}
               height={50}
               alt="Caneless Logo"
