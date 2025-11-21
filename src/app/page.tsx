@@ -106,14 +106,51 @@ export default function Home() {
         </div>
       </div>
 
-      <footer className="py-16 flex justify-center">
-        <Image 
-          src="/assets/logo png.jpeg" 
-          width={120} 
-          height={40} 
-          alt="Caneless Logo"
-          className="object-contain" 
-        />
+      <footer className="bg-[#1d1d1f] text-white py-16 px-6">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+          {/* Logo Section */}
+          <div>
+            <Image
+              src="/assets/logo 2.jpeg"
+              width={160}
+              height={50}
+              alt="Caneless Logo"
+              className="object-contain mb-6"
+            />
+            <p className="text-neutral-400 text-sm">
+              Empowering independence through innovative assistive technology.
+            </p>
+          </div>
+
+          {/* Contact Section */}
+          <div>
+            <h4 className="text-lg font-semibold mb-6 text-white">Contact Us</h4>
+            <div className="space-y-4">
+              <div className="text-sm text-neutral-400">
+                <p>Email: <a href="mailto:info@caneless.example.com" className="text-white hover:text-gray-300">info@caneless.example.com</a></p>
+                <p>Support: <a href="mailto:support@caneless.example.com" className="text-white hover:text-gray-300">support@caneless.example.com</a></p>
+              </div>
+              <div className="text-sm text-neutral-400">
+                <p>Phone: <a href="tel:+15551234567" className="text-white hover:text-gray-300">+1 (555) 123-4567</a></p>
+              </div>
+            </div>
+          </div>
+
+          {/* Links Section */}
+          <div>
+            <h4 className="text-lg font-semibold mb-6 text-white">Quick Links</h4>
+            <ul className="space-y-3 text-sm text-neutral-400">
+              <li><a href="/about" className="hover:text-white">About Us</a></li>
+              <li><a href="/privacy" className="hover:text-white">Privacy Policy</a></li>
+              <li><a href="/terms" className="hover:text-white">Terms of Service</a></li>
+              <li><a href="/careers" className="hover:text-white">Careers</a></li>
+            </ul>
+          </div>
+        </div>
+        {/* Copyright */}
+        <div className="mt-12 pt-8 border-t border-neutral-700 text-center text-sm text-neutral-500">
+          <p>&copy; {new Date().getFullYear()} Caneless. All rights reserved.</p>
+        </div>
       </footer>
     </main>
   );
