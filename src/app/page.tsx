@@ -72,17 +72,6 @@ export default function Home() {
       <div className='relative h-[80vh] md:h-screen w-full overflow-hidden bg-[#F5F5F7]'>
         <Image src='/assets/woman.jpeg' alt='Caneless Editorial' fill className='object-cover object-[40%_50%] block md:hidden' priority />
         <div className="absolute inset-0 bg-black/30 block md:hidden" />
-        <video 
-          className='absolute top-0 left-0 w-full h-full object-cover transform-gpu will-change-transform bg-[#F5F5F7]' 
-          autoPlay 
-          loop 
-          muted 
-          playsInline 
-          preload='auto' 
-          poster='/assets/hero-bg.jpg'
-        >
-          <source src='/assets/glasses-video.mp4' type='video/mp4' />
-        </video>
         <div className='relative z-10 h-full flex flex-col items-center justify-center text-center px-4'>
           <label className='uppercase tracking-[0.5em] text-[10px] sm:text-xs text-neutral-200 md:text-zinc-400 mb-4'>Visionary Tech</label>
           <h1 className='text-5xl sm:text-6xl md:text-8xl font-light tracking-tighter text-neutral-100 md:text-[#1d1d1f]'>CANELESS</h1>
