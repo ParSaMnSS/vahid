@@ -1,7 +1,5 @@
 "use client";
-import { useRef, useState } from 'react';
-import gsap from 'gsap';
-import { useGSAP } from '@gsap/react';
+import { useState } from 'react';
 import Image from 'next/image';
 
 const products = [
@@ -53,35 +51,10 @@ function ProductShowcase() {
 }
 
 export default function Home() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [duration, setDuration] = useState(0);
-
-  useGSAP(() => {
-    if (duration && videoRef.current) {
-      gsap.fromTo(videoRef.current, 
-        { currentTime: 0 }, 
-        { 
-          currentTime: duration, 
-          duration: duration, 
-          ease: 'none', 
-          repeat: -1, 
-          yoyo: true 
-        }
-      );
-    }
-  }, [duration]);
-
   return (
     <main className="min-h-screen bg-[#F5F5F7] text-[#1d1d1f] selection:bg-black selection:text-white">
       <div className='relative h-[85vh] md:h-screen w-full overflow-hidden'>
-        <video 
-          ref={videoRef}
-          className='absolute w-full h-full object-cover' 
-          muted 
-          playsInline 
-          src='/assets/glasses-video.mp4' 
-          onLoadedMetadata={(e) => setDuration(e.currentTarget.duration)}
-        />
+        <video className='absolute w-full h-full object-cover' autoPlay loop muted playsInline src='/assets/glasses-video.mp4' />
         <div className='relative h-full flex flex-col items-center justify-center text-center'>
           <label className='uppercase tracking-[0.5em] text-xs text-zinc-400 mb-4'>Visionary Tech</label>
           <h1 className='text-4xl sm:text-6xl md:text-8xl font-light tracking-tighter text-[#1d1d1f]'>CANELESS</h1>
