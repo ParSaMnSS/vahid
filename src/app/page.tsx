@@ -62,8 +62,8 @@ export default function Home() {
     if (!video) return;
 
     const handleScroll = () => {
-      const scrollableHeight = window.innerHeight * 3;
-      const scrollProgress = Math.min(window.scrollY / scrollableHeight, 1);
+      const scrollDistance = window.innerHeight * 2;
+      const scrollProgress = Math.max(0, Math.min(window.scrollY / scrollDistance, 1));
       
       if (video.duration) {
         const videoTime = video.duration * scrollProgress;
@@ -73,17 +73,20 @@ export default function Home() {
       }
     };
 
-    const onLoadedMetadata = () => {
+    const setupScrollListener = () => {
+      handleScroll(); // Initial call
       window.addEventListener('scroll', handleScroll);
     };
-    
-    video.addEventListener('loadedmetadata', onLoadedMetadata);
-    // Initial call to set position
-    handleScroll();
+
+    if (video.readyState >= 1) {
+      setupScrollListener();
+    } else {
+      video.addEventListener('loadedmetadata', setupScrollListener);
+    }
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      video.removeEventListener('loadedmetadata', onLoadedMetadata);
+      video.removeEventListener('loadedmetadata', setupScrollListener);
     };
   }, []);
 
@@ -96,6 +99,7 @@ export default function Home() {
             ref={videoRef}
             muted
             playsInline
+            preload="auto"
             className="absolute w-full h-full object-cover opacity-60"
           >
             <source src="/assets/glasses-video.mp4" type="video/mp4" />
