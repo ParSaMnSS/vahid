@@ -1,7 +1,5 @@
-"use client";
-
-import Image from "next/image";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import Image from 'next/image';
 
 const products = [
   { name: 'Charcoal', src: '/assets/charcoal.jpeg', colorCode: '#36454F' },
@@ -19,7 +17,7 @@ function ProductShowcase() {
   return (
     <div className="max-w-7xl mx-auto px-6 py-24 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
       {/* Left Column (Image) */}
-      <div className="relative aspect-[4/3] w-full rounded-[3rem] overflow-hidden bg-[#fefef4] shadow-2xl flex items-center justify-center">
+      <div className="relative aspect-4/3 w-full rounded-6xl overflow-hidden bg-[#fefef4] shadow-2xl flex items-center justify-center">
         <Image
           src={selectedProduct.src}
           alt={selectedProduct.name}
@@ -56,22 +54,55 @@ function ProductShowcase() {
 
 
 export default function Home() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const handleScroll = () => {
+      const scrollableHeight = window.innerHeight * 3;
+      const scrollProgress = Math.min(window.scrollY / scrollableHeight, 1);
+      
+      if (video.duration) {
+        const videoTime = video.duration * scrollProgress;
+        requestAnimationFrame(() => {
+          video.currentTime = videoTime;
+        });
+      }
+    };
+
+    const onLoadedMetadata = () => {
+      window.addEventListener('scroll', handleScroll);
+    };
+    
+    video.addEventListener('loadedmetadata', onLoadedMetadata);
+    // Initial call to set position
+    handleScroll();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      video.removeEventListener('loadedmetadata', onLoadedMetadata);
+    };
+  }, []);
+
   return (
     <main className="min-h-screen bg-[#050505] text-[#e0e0e0] selection:bg-[#fefef4] selection:text-black">
       {/* Hero Section */}
-      <div className="relative h-screen w-full overflow-hidden">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute w-full h-full object-cover opacity-60"
-        >
-          <source src="/assets/glasses video.mp4" type="video/mp4" />
-        </video>
-        <div className="relative h-full flex flex-col items-center justify-center text-center">
-          <label className="uppercase tracking-[0.5em] text-xs text-zinc-400 mb-4">Visionary Tech</label>
-          <h1 className="text-6xl md:text-8xl font-light tracking-tighter text-white mix-blend-overlay">CANELESS</h1>
+      <div className="relative h-[300vh]">
+        <div className="sticky top-0 h-screen w-full overflow-hidden">
+          <video
+            ref={videoRef}
+            muted
+            playsInline
+            className="absolute w-full h-full object-cover opacity-60"
+          >
+            <source src="/assets/glasses-video.mp4" type="video/mp4" />
+          </video>
+          <div className="relative h-full flex flex-col items-center justify-center text-center">
+            <label className="uppercase tracking-[0.5em] text-xs text-zinc-400 mb-4">Visionary Tech</label>
+            <h1 className="text-6xl md:text-8xl font-light tracking-tighter text-white mix-blend-overlay">CANELESS</h1>
+          </div>
         </div>
       </div>
 
@@ -90,7 +121,7 @@ export default function Home() {
 
       {/* Demo Section */}
       <div className="w-full py-32 flex justify-center bg-[#0a0a0a]">
-        <div className="max-w-5xl w-full aspect-video rounded-[2rem] overflow-hidden shadow-2xl opacity-90 hover:opacity-100 transition-opacity duration-700">
+        <div className="max-w-5xl w-full aspect-video rounded-4xl overflow-hidden shadow-2xl opacity-90 hover:opacity-100 transition-opacity duration-700">
           <video
             autoPlay
             loop
@@ -98,7 +129,7 @@ export default function Home() {
             playsInline
             className="w-full h-full object-cover"
           >
-            <source src="/assets/case%20video.mp4" type="video/mp4" />
+            <source src="/assets/case-video.mp4" type="video/mp4" />
           </video>
         </div>
       </div>
