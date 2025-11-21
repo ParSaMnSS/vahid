@@ -56,15 +56,14 @@ function ProductShowcase() {
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#F5F5F7] text-[#1d1d1f]">
-      <div className='relative h-[80vh] md:h-screen w-full overflow-hidden bg-[#F5F5F7]'>
+      <div className='relative h-[85vh] md:h-screen w-full overflow-hidden bg-[#F5F5F7]'>
         <video 
-          className='absolute top-0 left-0 w-full h-full object-cover transform-gpu bg-[#F5F5F7] scale-125 md:scale-100' 
+          className='absolute top-0 left-0 w-full h-full object-cover transform-gpu will-change-transform bg-[#F5F5F7]' 
           autoPlay 
           loop 
           muted 
           playsInline 
-          preload='auto' 
-          poster='/assets/hero-bg.jpg'
+          preload='auto'
         >
           <source src='/assets/glasses-video.mp4' type='video/mp4' />
         </video>
