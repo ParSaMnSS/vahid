@@ -127,7 +127,7 @@ export default function Home() {
             <h4 className="text-lg font-semibold mb-6 text-white">Contact Us</h4>
             <div className="space-y-4">
               <div className="text-sm text-neutral-400">
-                <p>Email: <a href="mailto:info@caneless.example.com" className="text-white hover:text-gray-300">info@caneless.example.com</a></p>
+                <p>Email: <a href="mailto:Vahidkhlvati@gmail.com" className="text-white hover:text-gray-300">Vahidkhlvati@gmail.com</a></p>
                 <p>Support: <a href="mailto:support@caneless.example.com" className="text-white hover:text-gray-300">support@caneless.example.com</a></p>
               </div>
               <div className="text-sm text-neutral-400">
